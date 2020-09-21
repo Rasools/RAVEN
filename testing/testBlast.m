@@ -21,9 +21,6 @@ function [success,blastStructure]=testBlast(fullCheck)
 %   directory
 %
 %   Usage: [success,blastStructure]=testBlast(fullCheck)
-%
-%   Simonas Marcisauskas, 2019-10-04
-%
 
 if nargin<1
     fullCheck=true;
@@ -41,6 +38,7 @@ if isunix
     end
 elseif ispc
     binEnd='';
+    setenv('BLASTDB_LMDB_MAP_SIZE','1000000');
 else
     dispEM('Unknown OS, exiting.')
     return

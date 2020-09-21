@@ -26,9 +26,6 @@ function blastStructure=getBlast(organismID,fastaFile,modelIDs,refFastaFiles)
 %
 %   Usage: blastStructure=getBlast(organismID,fastaFile,modelIDs,...
 %           refFastaFiles)
-%
-%   Simonas Marcisauskas, 2019-08-17
-%
 
 %Everything should be cell arrays
 organismID=cellstr(organismID);
@@ -69,6 +66,7 @@ if isunix
     end
 elseif ispc
     binEnd='';
+    setenv('BLASTDB_LMDB_MAP_SIZE','1000000');
 else
     dispEM('Unknown OS, exiting.')
     return
