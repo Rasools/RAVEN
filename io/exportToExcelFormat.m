@@ -168,7 +168,7 @@ subsystems='';
 if isfield(model,'subSystems')
     for i=1:numel(model.subSystems)
         if ~isempty(model.subSystems{i,1})
-            subsystems{i,1}=strjoin(model.subSystems{i,1},';');
+            subsystems{i,1}=strjoin(cellstr(model.subSystems{i,1}),';');
         else
             subsystems{i,1}='';
         end
